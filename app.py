@@ -1,4 +1,3 @@
-from pulsesensor import Pulsesensor
 import time
 import os
 import glob
@@ -6,8 +5,6 @@ import sys
 import argparse
 
 # extended from https://github.com/WorldFamousElectronics/PulseSensor_Amped_Arduino
-
-import time
 import threading
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
