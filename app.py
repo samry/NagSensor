@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import time
 import os
 import glob
@@ -109,10 +110,10 @@ class Pulsesensor:
         self.BPM = 0
         return
 
-parser = argparse.ArgumentParser(description='A heartbeat sensor-optimized Nagios plugin for the PulseSensor.com pulse sensor and the MCP3008 ADC')
-parser.add_argument('-w', '--warning', type=float, required=True, help='A BPM rate of 120 or greater')
-parser.add_argument('-c', '--critical', type=float, required=True, help='A BPM rate of 160 or greater')
-parser.add_argument('--version', action='version', version='version 0.1')
+# parser = argparse.ArgumentParser(description='A heartbeat sensor-optimized Nagios plugin for the PulseSensor.com pulse sensor and the MCP3008 ADC')
+# parser.add_argument('-w', '--warning', type=float, required=True, help='A BPM rate of 120 or greater')
+# parser.add_argument('-c', '--critical', type=float, required=True, help='A BPM rate of 160 or greater')
+# parser.add_argument('--version', action='version', version='version 0.1')
 
 # load the pulse sensor module
 p = Pulsesensor()
@@ -126,11 +127,11 @@ critical_low_threshold = 35
 warning_high_threshold = 120
 critical_high_threshold = 160
 
-try:
-    args = parser.parse_args()
-except:
-    print 'Unexpected command line input'
-    sys.exit(3)
+# try:
+#     args = parser.parse_args()
+# except:
+#     print 'Unexpected command line input'
+#     sys.exit(3)
 
 try:
     while True:
@@ -141,16 +142,16 @@ try:
             # low threshold
             if bpm < warning_low_threshold:
                 print 'Warning: Low Heartbeat ',(bpm),' | ',(bpm)
-                sys.exit(1)
+                # sys.exit(1)
             elif bpm > warning_high_threshold:
                 print 'Warning: High Heartbeat ',(bpm),' | ',(bpm)
-                sys.exit(1)
+                # sys.exit(1)
             elif bpm > critical_high_threshold:
                 print 'Critical: High Heartbeat ',(bpm),' | ',(bpm)
-                sys.exit(2)
+                # sys.exit(2)
             elif bpm < critical_low_threshold:
                 print 'Critical: Low Heartbeat ',(bpm),' | ',(bpm)
-                sys.exit(2)
+                # sys.exit(2)
         else:
             print("No Heartbeat found")
         time.sleep(1)
