@@ -133,27 +133,24 @@ critical_high_threshold = 160
 #     print 'Unexpected command line input'
 #     sys.exit(3)
 
-try:
-    while True:
-        print bpm
-        bpm = p.BPM
-        if bpm > 0:
-            #print("BPM: %d" % bpm)
-            # low threshold
-            if bpm < warning_low_threshold:
-                print 'Warning: Low Heartbeat ',(bpm),' | ',(bpm)
-                # sys.exit(1)
-            elif bpm > warning_high_threshold:
-                print 'Warning: High Heartbeat ',(bpm),' | ',(bpm)
-                # sys.exit(1)
-            elif bpm > critical_high_threshold:
-                print 'Critical: High Heartbeat ',(bpm),' | ',(bpm)
-                # sys.exit(2)
-            elif bpm < critical_low_threshold:
-                print 'Critical: Low Heartbeat ',(bpm),' | ',(bpm)
-                # sys.exit(2)
-        else:
-            print("No Heartbeat found")
-        time.sleep(1)
-except:
-    p.stopAsyncBPM()
+while True:
+    print bpm
+    bpm = p.BPM
+    if bpm > 0:
+        #print("BPM: %d" % bpm)
+        # low threshold
+        if bpm < warning_low_threshold:
+            print 'Warning: Low Heartbeat ',(bpm),' | ',(bpm)
+            # sys.exit(1)
+        elif bpm > warning_high_threshold:
+            print 'Warning: High Heartbeat ',(bpm),' | ',(bpm)
+            # sys.exit(1)
+        elif bpm > critical_high_threshold:
+            print 'Critical: High Heartbeat ',(bpm),' | ',(bpm)
+            # sys.exit(2)
+        elif bpm < critical_low_threshold:
+            print 'Critical: Low Heartbeat ',(bpm),' | ',(bpm)
+            # sys.exit(2)
+    else:
+        print("No Heartbeat found")
+    time.sleep(1)
